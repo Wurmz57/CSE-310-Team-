@@ -4,13 +4,13 @@
 ## Team Members
 
 ## Software Description
-
+Side scroller metroidvania/dungeon crawler
 ## Architecture
-
+Godot project
 ## Software Features
 
-* [ ] First feature here
-* [ ] Second feature here
+* [Side scrolling] First feature here
+* [Platformer gravity] Second feature here
 * [ ] Keep going ....
 
 ## Team Communication
