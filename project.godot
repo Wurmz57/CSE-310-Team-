@@ -10,11 +10,7 @@ config_version=5
 
 [application]
 
-config/name="CSE 310 Project"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+config/name="New Game Project"
+run/main_scene="uid://d30ebo7uakvax"
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
