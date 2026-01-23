@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d30ebo7uakvax"]
 
-[ext_resource type="Script" uid="uid://bss4mgihbqfdc" path="res://Gravity_Test.gd" id="1_f50pn"]
+[ext_resource type="Script" uid="uid://bss4mgihbqfdc" path="res://scripts/Gravity_Test.gd" id="1_f50pn"]
 [ext_resource type="Texture2D" uid="uid://cflwblg84ucxb" path="res://Assets/Screenshot (9).png" id="2_ij6vw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ij6vw"]
