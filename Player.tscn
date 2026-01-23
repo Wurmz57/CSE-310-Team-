@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6eneupvjltro"]
+
+[ext_resource type="Script" uid="uid://b2yrtxwkpkqly" path="res://player.gd" id="1_xhfnw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kpjcp"]
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(1, 1)
+script = ExtResource("1_xhfnw")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kpjcp")
