@@ -4,14 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://cflwblg84ucxb" path="res://Assets/Screenshot (9).png" id="2_ij6vw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ij6vw"]
+size = Vector2(355, 62)
 
 [node name="Gravity_Test" type="CharacterBody2D"]
+position = Vector2(90, 245)
 script = ExtResource("1_f50pn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(463, 34)
+position = Vector2(0, 1)
 texture = ExtResource("2_ij6vw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(456, 326)
+position = Vector2(0, 201)
 shape = SubResource("RectangleShape2D_ij6vw")
