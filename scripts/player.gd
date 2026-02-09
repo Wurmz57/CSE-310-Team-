@@ -5,15 +5,19 @@ var screen_size
 @export var speed := 400.0
 @export var jump_force := 350.0
 @export var gravity := 1200.0
+@export var coyote_time = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
-	
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		coyote_time += delta
+	else:
+		coyote_time = 0
 
 	var direction := 0.0
 
@@ -26,8 +30,9 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.y += gravity * delta
 	
-	if Input.is_action_pressed("ui_up") and is_on_floor():
+	if Input.is_action_pressed("ui_up") and (is_on_floor() or coyote_time <= .1):
 		velocity.y = -jump_force
+		coyote_time = 1
 		
 	move_and_slide()
 

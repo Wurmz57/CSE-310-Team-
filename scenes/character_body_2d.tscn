@@ -1,17 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4m7cxe488g23"]
+[gd_scene load_steps=5 format=3 uid="uid://c4m7cxe488g23"]
 
 [ext_resource type="Script" uid="uid://cxyo3fusu2bfe" path="res://scripts/player.gd" id="1_g2brh"]
-[ext_resource type="Texture2D" uid="uid://j6po4sdpso2r" path="res://Assets/Sprites/Player_Swordless.png" id="2_g2brh"]
+[ext_resource type="Texture2D" uid="uid://c8chidlk1w2qh" path="res://Assets/Sprites/Player.png" id="2_g2brh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dn4c7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g2brh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ij6vw"]
 size = Vector2(19, 37)
 
 [node name="Player" type="CharacterBody2D"]
+floor_constant_speed = true
+floor_snap_length = 20.0
 script = ExtResource("1_g2brh")
 
-[node name="Player Sprite" type="Sprite2D" parent="."]
+[node name="Player Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.6097561, 0.84090906)
-texture = ExtResource("2_g2brh")
+sprite_frames = SubResource("SpriteFrames_dn4c7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 0.5)
@@ -19,3 +32,5 @@ shape = SubResource("RectangleShape2D_ij6vw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
