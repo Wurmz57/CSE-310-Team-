@@ -12,10 +12,12 @@ func _ready() -> void:
 
 func start_attack():
 	hit_targets.clear()
+	$CollisionShape2D.disabled = false
 	monitoring = true
 
 func end_attack():
 	monitoring = false
+	$CollisionShape2D.disabled = true
 	hit_targets.clear()
 
 func _on_body_entered(body: Node2D) -> void:

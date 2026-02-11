@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbh1lxhij7s5e"
-path="res://.godot/imported/Keyblade copy transparent.png-4262db5c227747faab76c72d94d1a786.ctex"
+uid="uid://r5yc3g4s82bx"
+path="res://.godot/imported/Crate_wide.png-d2f1e5ec0dd62e1f5146084a9ae8e8bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Keyblade copy transparent.png"
-dest_files=["res://.godot/imported/Keyblade copy transparent.png-4262db5c227747faab76c72d94d1a786.ctex"]
+source_file="res://Assets/Sprites/Crate_wide.png"
+dest_files=["res://.godot/imported/Crate_wide.png-d2f1e5ec0dd62e1f5146084a9ae8e8bc.ctex"]
 
 [params]
 

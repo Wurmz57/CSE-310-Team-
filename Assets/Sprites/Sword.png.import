@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8k2d64u68fti"
-path="res://.godot/imported/Aftertale.png-396803c3cfd6e6c1feaac6e3371ff26d.ctex"
+uid="uid://e74bau1pj1rx"
+path="res://.godot/imported/Sword.png-08089c64f5197c83bc8e8b29dc42b224.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Aftertale.png"
-dest_files=["res://.godot/imported/Aftertale.png-396803c3cfd6e6c1feaac6e3371ff26d.ctex"]
+source_file="res://Assets/Sprites/Sword.png"
+dest_files=["res://.godot/imported/Sword.png-08089c64f5197c83bc8e8b29dc42b224.ctex"]
 
 [params]
 

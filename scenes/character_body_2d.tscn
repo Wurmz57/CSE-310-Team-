@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cltc83pr6dnaa" path="res://Assets/Sprites/newPlayer.png" id="3_4vejd"]
 [ext_resource type="Texture2D" uid="uid://cvppnqwfuvv2a" path="res://Assets/Sprites/Player_Sword_Jab1.png" id="3_rhr3r"]
 [ext_resource type="Texture2D" uid="uid://c0cbiunnphmps" path="res://Assets/Sprites/swordJump.png" id="4_cibgq"]
-[ext_resource type="Script" path="res://scripts/sword_collision.gd" id="6_rhr3r"]
+[ext_resource type="Script" uid="uid://uyvdpjncrrvk" path="res://scripts/sword_collision.gd" id="6_rhr3r"]
 [ext_resource type="Texture2D" uid="uid://ctt11t35kfe5n" path="res://Assets/Sprites/newPlayerLeft.png" id="6_yi2kj"]
 [ext_resource type="Texture2D" uid="uid://cvx24tm3uvuiy" path="res://Assets/Sprites/newPlayerRight.png" id="7_cibgq"]
 [ext_resource type="Texture2D" uid="uid://d2t08dp51e0dd" path="res://Assets/Sprites/swordlessJump.png" id="9_mfdas"]
@@ -109,7 +109,7 @@ sprite_frames = SubResource("SpriteFrames_ws0vm")
 animation = &"Sword Jab"
 offset = Vector2(4, 0)
 
-[node name="Sword Collision" type="Area2D" parent="Visuals"]
+[node name="Sword Collision" type="Area2D" parent="Visuals" groups=["hitbox"]]
 position = Vector2(40.5, 0)
 script = ExtResource("6_rhr3r")
 metadata/_edit_group_ = true

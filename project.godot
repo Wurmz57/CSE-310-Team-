@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="CSE 310 Video Game"
-run/main_scene="uid://cptukue8myrjo"
+run/main_scene="uid://dpfogkt0kxiqp"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 PlayerProgress="*res://scripts/PlayerProgress.gd"
+
+[global_group]
+
+player=""
+hitbox=""
 
 [input]
 

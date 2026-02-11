@@ -9,7 +9,11 @@ var broken := false
 @export var break_on_any_hit = true
 @export var can_break = true
 #@export var damage = 1
+		
 
+func _ready():
+	hp = 1
+	
 func _break() -> void:
 	print("Break")
 	if broken:
