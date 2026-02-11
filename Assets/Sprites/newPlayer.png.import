@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:Assets/Sprites/newPlayer.png.import
 uid="uid://cltc83pr6dnaa"
 path="res://.godot/imported/newPlayer.png-426f5a78a0262bf60ffc94255096200f.ctex"
-========
-uid="uid://cflwblg84ucxb"
-path="res://.godot/imported/Screenshot (9).png-4c630dbacfaef8a25a71c8540d0eb388.ctex"
->>>>>>>> Hunter:Assets/Screenshot (9).png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:Assets/Sprites/newPlayer.png.import
 source_file="res://Assets/Sprites/newPlayer.png"
 dest_files=["res://.godot/imported/newPlayer.png-426f5a78a0262bf60ffc94255096200f.ctex"]
-========
-source_file="res://Assets/Screenshot (9).png"
-dest_files=["res://.godot/imported/Screenshot (9).png-4c630dbacfaef8a25a71c8540d0eb388.ctex"]
->>>>>>>> Hunter:Assets/Screenshot (9).png.import
 
 [params]
 

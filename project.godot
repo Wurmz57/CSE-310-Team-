@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="CSE 310 Video Game"
-run/main_scene="uid://b052l8jy50pu"
+run/main_scene="uid://cptukue8myrjo"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PlayerProgress="*res://scripts/PlayerProgress.gd"
 
 [input]
 
@@ -22,9 +26,6 @@ attack={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
 ]
 }
-[autoload]
-
-PlayerProgress="*res://Autoloads/PlayerProgress.gd"
 
 [rendering]
 
