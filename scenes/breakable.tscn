@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bftjn8u8e07k0"]
+
+[ext_resource type="Script" uid="uid://ct60gkav8ksyh" path="res://scripts/breakable.gd" id="1_iiu7q"]
+[ext_resource type="Texture2D" uid="uid://8k2d64u68fti" path="res://Assets/Aftertale.png" id="2_xnavs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7aw1n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iiu7q"]
+size = Vector2(22, 21)
+
+[node name="Box_Test" type="StaticBody2D"]
+script = ExtResource("1_iiu7q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.2218952e-06, -1.0523303e-06)
+scale = Vector2(0.037802387, 0.04033052)
+texture = ExtResource("2_xnavs")
+
+[node name="SolidCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7aw1n")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="HurtboxCollision" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_iiu7q")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

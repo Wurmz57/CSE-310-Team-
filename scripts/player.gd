@@ -8,7 +8,7 @@ var is_attacking := false
 @onready var sword_collision = $"Visuals/Sword Collision"
 
 @export var speed := 400.0
-@export var jump_force := 350.0
+@export var jump_force := 500.0
 @export var gravity := 1200.0
 @export var coyote_time = 0
 

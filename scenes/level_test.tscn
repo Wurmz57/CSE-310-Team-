@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://leri5w3k80a6"]
+
+[ext_resource type="PackedScene" uid="uid://d30ebo7uakvax" path="res://scenes/Placeholder.tscn" id="1_e73ws"]
+[ext_resource type="PackedScene" uid="uid://bftjn8u8e07k0" path="res://scenes/breakable.tscn" id="2_vbogn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8m37a"]
+size = Vector2(1151, 20)
+
+[node name="LevelTest" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(575.5, 659)
+shape = SubResource("RectangleShape2D_8m37a")
+
+[node name="Gravity_Test" parent="." instance=ExtResource("1_e73ws")]
+position = Vector2(182, 134.00003)
+scale = Vector2(0.70680815, 0.70680815)
+jump_force = 1300.0
+metadata/_edit_group_ = true
+
+[node name="Box_Test" parent="." groups=["hitbox"] instance=ExtResource("2_vbogn")]
+position = Vector2(602, 529)
+scale = Vector2(11.733822, 11.733822)
+
+[node name="Box_Test2" parent="." groups=["hitbox"] instance=ExtResource("2_vbogn")]
+position = Vector2(948, 476)
+scale = Vector2(16.999458, 16.999458)
+hp = 5
