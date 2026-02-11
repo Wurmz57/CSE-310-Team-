@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4m7cxe488g23"]
+[gd_scene load_steps=14 format=3 uid="uid://c4m7cxe488g23"]
 
 [ext_resource type="Script" uid="uid://cxyo3fusu2bfe" path="res://scripts/player.gd" id="1_g2brh"]
 [ext_resource type="Texture2D" uid="uid://j6po4sdpso2r" path="res://Assets/Sprites/Player_Swordless.png" id="2_dn4c7"]
@@ -11,19 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cvx24tm3uvuiy" path="res://Assets/Sprites/newPlayerRight.png" id="7_cibgq"]
 [ext_resource type="Texture2D" uid="uid://d2t08dp51e0dd" path="res://Assets/Sprites/swordlessJump.png" id="9_mfdas"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_dn4c7"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_g2brh")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ij6vw"]
-size = Vector2(23, 44)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mfdas"]
+height = 44.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ws0vm"]
 animations = [{
@@ -106,18 +95,11 @@ floor_snap_length = 20.0
 script = ExtResource("1_g2brh")
 metadata/_edit_group_ = true
 
-[node name="Player Sprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.6097561, 0.84090906)
-sprite_frames = SubResource("SpriteFrames_dn4c7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 0.5)
 [node name="Player Collision" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ij6vw")
+shape = SubResource("CapsuleShape2D_mfdas")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
-position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="Visuals" type="Node2D" parent="."]
