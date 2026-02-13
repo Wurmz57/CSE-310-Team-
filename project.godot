@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-PlayerProgress="*res://Autoloads/PlayerProgress.gd"
+PlayerProgress="*res://scripts/PlayerProgress.gd"
 
 [global_group]
 

@@ -60,8 +60,13 @@ func start(pos):
 	show()
 	$CollisionShape2D.disabled = false
 
+
 func attack():
 	if is_attacking:
+		return
+	# prevent attacking if no sword
+	
+	if not PlayerProgress.has_ability(&"sword"):
 		return
 	
 	is_attacking = true
