@@ -1,21 +1,122 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4m7cxe488g23"]
+[gd_scene load_steps=14 format=3 uid="uid://c4m7cxe488g23"]
 
 [ext_resource type="Script" uid="uid://cxyo3fusu2bfe" path="res://scripts/player.gd" id="1_g2brh"]
-[ext_resource type="Texture2D" uid="uid://c8chidlk1w2qh" path="res://Assets/Sprites/Player.png" id="2_g2brh"]
+[ext_resource type="Texture2D" uid="uid://j6po4sdpso2r" path="res://Assets/Sprites/Player_Swordless.png" id="2_dn4c7"]
+[ext_resource type="Texture2D" uid="uid://boxtxesleg7xw" path="res://Assets/Sprites/Player_Sword_Jab2.png" id="2_ws0vm"]
+[ext_resource type="Texture2D" uid="uid://cltc83pr6dnaa" path="res://Assets/Sprites/newPlayer.png" id="3_4vejd"]
+[ext_resource type="Texture2D" uid="uid://cvppnqwfuvv2a" path="res://Assets/Sprites/Player_Sword_Jab1.png" id="3_rhr3r"]
+[ext_resource type="Texture2D" uid="uid://c0cbiunnphmps" path="res://Assets/Sprites/swordJump.png" id="4_cibgq"]
+[ext_resource type="Script" uid="uid://uyvdpjncrrvk" path="res://scripts/sword_collision.gd" id="6_rhr3r"]
+[ext_resource type="Texture2D" uid="uid://ctt11t35kfe5n" path="res://Assets/Sprites/newPlayerLeft.png" id="6_yi2kj"]
+[ext_resource type="Texture2D" uid="uid://cvx24tm3uvuiy" path="res://Assets/Sprites/newPlayerRight.png" id="7_cibgq"]
+[ext_resource type="Texture2D" uid="uid://d2t08dp51e0dd" path="res://Assets/Sprites/swordlessJump.png" id="9_mfdas"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ij6vw"]
-size = Vector2(19, 37)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mfdas"]
+height = 44.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ws0vm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ws0vm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rhr3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rhr3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rhr3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ws0vm")
+}],
+"loop": false,
+"name": &"Sword Jab",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_cibgq")
+}],
+"loop": true,
+"name": &"Sword Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_yi2kj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4vejd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cibgq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4vejd")
+}],
+"loop": true,
+"name": &"Sword_walk",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dn4c7")
+}],
+"loop": true,
+"name": &"Swordless",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_mfdas")
+}],
+"loop": true,
+"name": &"Swordless Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4vejd")
+}],
+"loop": true,
+"name": &"Swordmore",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t53lx"]
+size = Vector2(38, 20)
 
 [node name="Player" type="CharacterBody2D"]
+floor_constant_speed = true
+floor_snap_length = 20.0
 script = ExtResource("1_g2brh")
+metadata/_edit_group_ = true
 
-[node name="Player Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.6097561, 0.84090906)
-texture = ExtResource("2_g2brh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 0.5)
-shape = SubResource("RectangleShape2D_ij6vw")
+[node name="Player Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_mfdas")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+position_smoothing_speed = 10.0
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Animated Player Sprite" type="AnimatedSprite2D" parent="Visuals"]
+sprite_frames = SubResource("SpriteFrames_ws0vm")
+animation = &"Sword Jab"
+offset = Vector2(4, 0)
+
+[node name="Sword Collision" type="Area2D" parent="Visuals" groups=["hitbox"]]
+position = Vector2(40.5, 0)
+script = ExtResource("6_rhr3r")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/Sword Collision"]
+position = Vector2(4, -5)
+shape = SubResource("RectangleShape2D_t53lx")
+disabled = true
+
+[connection signal="body_entered" from="Visuals/Sword Collision" to="Visuals/Sword Collision" method="_on_body_entered"]
