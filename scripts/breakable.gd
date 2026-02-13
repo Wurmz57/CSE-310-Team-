@@ -5,14 +5,15 @@ extends StaticBody2D
 @onready var hurtbox_collision = $Hurtbox/HurtboxCollision
 @onready var sprite = $Sprite2D
 var broken := false
-@export var hp = 1
+var hp: int
+@export var max_hp = 1
 @export var break_on_any_hit = true
 @export var can_break = true
 #@export var damage = 1
 		
 
 func _ready():
-	hp = 1
+	hp = max_hp
 	
 func _break() -> void:
 	print("Break")
