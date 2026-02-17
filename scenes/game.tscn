@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dpfogkt0kxiqp"]
+[gd_scene load_steps=14 format=4 uid="uid://dpfogkt0kxiqp"]
 
 [ext_resource type="PackedScene" uid="uid://c4m7cxe488g23" path="res://scenes/character_body_2d.tscn" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://belx2syb5isqx" path="res://Assets/Sprites/Tiles/Tile 2.png" id="3_7jktm"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cjwo28yynmytx" path="res://scenes/Breakables/large_crate.tscn" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://brr3sl572y65" path="res://scenes/Breakables/small_crate.tscn" id="8_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://cjb3e3w7rqwou" path="res://scenes/Breakables/tall_crate.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://ca83hiil54d80" path="res://scenes/Breakables/wide_crate.tscn" id="9_0tnpc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7jktm"]
 resource_name = "Tile"
@@ -52,10 +53,10 @@ position = Vector2(828, 338)
 position = Vector2(410, 580)
 
 [node name="Small Crate" parent="." instance=ExtResource("8_0tnpc")]
-position = Vector2(526, 590)
+position = Vector2(520, 590)
 
 [node name="Tall Crate" parent="." instance=ExtResource("8_gee14")]
 position = Vector2(469, 580)
 
-[node name="Tall Crate2" parent="." instance=ExtResource("8_gee14")]
-position = Vector2(588, 580)
+[node name="Wide Crate" parent="." instance=ExtResource("9_0tnpc")]
+position = Vector2(581, 590)

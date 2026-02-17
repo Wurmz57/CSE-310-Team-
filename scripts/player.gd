@@ -15,7 +15,7 @@ var is_attacking := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
-	sprite.play("Swordmore")
+	sprite.play("Swordless")
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -84,9 +84,18 @@ func update_animation():
 		return
 	
 	if abs(velocity.x) > 0.1:
-		sprite.play("Sword_walk")
+		if PlayerProgress.has_ability(&"sword"):
+			sprite.play("Sword_walk")
+		else:
+			sprite.play("Swordless_walk")
 	else:
-		sprite.play("Swordmore") #Idle animation
+		if PlayerProgress.has_ability(&"sword"):
+			sprite.play("Swordmore") #Idle animation
+		else:
+			sprite.play("Swordless")
 	
 	if not is_on_floor():
-		sprite.play("Sword Jump")
+		if PlayerProgress.has_ability(&"sword"):
+			sprite.play("Sword Jump")
+		else:
+			sprite.play("Swordless Jump")
