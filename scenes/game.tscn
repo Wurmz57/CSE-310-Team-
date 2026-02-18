@@ -115,4 +115,4 @@ position = Vector2(469, 580)
 position = Vector2(581, 590)
 
 [node name="Sword Pickup" parent="." instance=ExtResource("10_vtaks")]
-position = Vector2(874, 332)
+position = Vector2(1140, 292)
