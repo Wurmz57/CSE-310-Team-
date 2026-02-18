@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c4m7cxe488g23"]
+[gd_scene load_steps=16 format=3 uid="uid://c4m7cxe488g23"]
 
 [ext_resource type="Script" uid="uid://cxyo3fusu2bfe" path="res://scripts/player.gd" id="1_g2brh"]
 [ext_resource type="Texture2D" uid="uid://j6po4sdpso2r" path="res://Assets/Sprites/Player_Swordless.png" id="2_dn4c7"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://ctt11t35kfe5n" path="res://Assets/Sprites/newPlayerLeft.png" id="6_yi2kj"]
 [ext_resource type="Texture2D" uid="uid://cvx24tm3uvuiy" path="res://Assets/Sprites/newPlayerRight.png" id="7_cibgq"]
 [ext_resource type="Texture2D" uid="uid://d2t08dp51e0dd" path="res://Assets/Sprites/swordlessJump.png" id="9_mfdas"]
+[ext_resource type="Texture2D" uid="uid://ils86fqw2wvp" path="res://Assets/Sprites/Player_Swordless_Left.png" id="10_7pl6r"]
+[ext_resource type="Texture2D" uid="uid://bvrnd3rl62jvr" path="res://Assets/Sprites/Player_Swordless_Right.png" id="11_x5gf8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mfdas"]
 height = 44.0
@@ -79,6 +81,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("10_7pl6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dn4c7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_x5gf8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dn4c7")
+}],
+"loop": true,
+"name": &"Swordless_walk",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_4vejd")
 }],
 "loop": true,
@@ -106,7 +125,7 @@ position_smoothing_speed = 10.0
 
 [node name="Animated Player Sprite" type="AnimatedSprite2D" parent="Visuals"]
 sprite_frames = SubResource("SpriteFrames_ws0vm")
-animation = &"Sword Jab"
+animation = &"Swordless"
 offset = Vector2(4, 0)
 
 [node name="Sword Collision" type="Area2D" parent="Visuals" groups=["hitbox"]]
