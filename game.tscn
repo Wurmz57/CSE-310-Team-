@@ -51,4 +51,4 @@ position = Vector2(280, 580)
 position = Vector2(828, 338)
 
 [node name="SlimeMonster" parent="." instance=ExtResource("7_eow3j")]
-position = Vector2(674, 572)
+position = Vector2(427, 452)

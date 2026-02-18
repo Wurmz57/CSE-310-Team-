@@ -5,6 +5,7 @@ var speed = 100
 
 func _ready():
 	$RayCast2D.add_exception(get_parent().get_node('Player'))
+	$AnimatedSprite2D.play('default')
 
 func _process(delta):
 	if $RayCast2D.is_colliding():
