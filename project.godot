@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="CSE 310 Video Game"
+config/name="CSE 310 Video Game Project"
 run/main_scene="uid://dpfogkt0kxiqp"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"

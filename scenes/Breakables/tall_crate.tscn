@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjb3e3w7rqwou"]
+
+[ext_resource type="PackedScene" uid="uid://cqjjwtbvpynvc" path="res://scenes/Breakables/breakable.tscn" id="1_jm23a"]
+[ext_resource type="Texture2D" uid="uid://sx1avcgudu8q" path="res://Assets/Sprites/Crate_tall.png" id="2_0hhh2"]
+
+[node name="Tall Crate" instance=ExtResource("1_jm23a")]
+max_hp = 2
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_0hhh2")
+
+[node name="SolidCollision" parent="." index="1"]
+scale = Vector2(0.49923354, 0.99921924)
+
+[node name="HurtboxCollision" parent="Hurtbox" index="0"]
+scale = Vector2(0.49789888, 1)

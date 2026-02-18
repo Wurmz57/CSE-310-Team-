@@ -108,7 +108,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t53lx"]
 size = Vector2(38, 20)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 floor_constant_speed = true
 floor_snap_length = 20.0
 script = ExtResource("1_g2brh")
@@ -133,7 +133,7 @@ position = Vector2(40.5, 0)
 script = ExtResource("6_rhr3r")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/Sword Collision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/Sword Collision" groups=["hitbox"]]
 position = Vector2(4, -5)
 shape = SubResource("RectangleShape2D_t53lx")
 disabled = true
