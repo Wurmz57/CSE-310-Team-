@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://1mt6xe2hwx07"]
 
-[ext_resource type="Script" path="res://scripts/ability_pickup.gd" id="1_5gang"]
+[ext_resource type="Script" uid="uid://cxhtip6v73jq7" path="res://scripts/ability_pickup.gd" id="1_5gang"]
 [ext_resource type="Texture2D" uid="uid://c1cus7xtrngcc" path="res://Assets/Sprites/Sword_Extended.png" id="2_yv2bh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7x6gj"]
@@ -8,6 +8,7 @@ size = Vector2(45.27598, 33.350407)
 
 [node name="AbilityPickup" type="Area2D"]
 script = ExtResource("1_5gang")
+ability_id = &"NULL"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.3841858e-07, -7.1525574e-07)

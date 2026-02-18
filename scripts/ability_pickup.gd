@@ -21,5 +21,4 @@ func _on_body_entered(body: Node2D) -> void:
 	collected = true
 	
 	PlayerProgress.unlock_ability(ability_id)
-	print("Unlocked ability: ", ability_id)
 	sprite.visible = false
