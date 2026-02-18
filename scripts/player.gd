@@ -85,3 +85,8 @@ func update_animation():
 	
 	if not is_on_floor():
 		sprite.play("Sword Jump")
+
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	if body.is_in_group('enemy'):
+		print('you got hit!')

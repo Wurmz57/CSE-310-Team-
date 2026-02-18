@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c4m7cxe488g23"]
+[gd_scene load_steps=15 format=3 uid="uid://c4m7cxe488g23"]
 
 [ext_resource type="Script" uid="uid://cxyo3fusu2bfe" path="res://scripts/player.gd" id="1_g2brh"]
 [ext_resource type="Texture2D" uid="uid://j6po4sdpso2r" path="res://Assets/Sprites/Player_Swordless.png" id="2_dn4c7"]
@@ -89,6 +89,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t53lx"]
 size = Vector2(38, 20)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nwgm"]
+radius = 11.0
+height = 46.0
+
 [node name="Player" type="CharacterBody2D"]
 floor_constant_speed = true
 floor_snap_length = 20.0
@@ -119,4 +123,10 @@ position = Vector2(4, -5)
 shape = SubResource("RectangleShape2D_t53lx")
 disabled = true
 
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CapsuleShape2D_8nwgm")
+
 [connection signal="body_entered" from="Visuals/Sword Collision" to="Visuals/Sword Collision" method="_on_body_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

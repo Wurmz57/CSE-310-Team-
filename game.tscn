@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dpfogkt0kxiqp"]
+[gd_scene load_steps=12 format=4 uid="uid://dpfogkt0kxiqp"]
 
 [ext_resource type="PackedScene" uid="uid://c4m7cxe488g23" path="res://scenes/character_body_2d.tscn" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://belx2syb5isqx" path="res://Assets/Sprites/Tiles/Tile 2.png" id="3_7jktm"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://je1vhhfjyqr2" path="res://Assets/Sprites/Tiles/Tile 3.png" id="4_ryrav"]
 [ext_resource type="PackedScene" uid="uid://cqjjwtbvpynvc" path="res://scenes/breakable.tscn" id="5_ryrav"]
 [ext_resource type="PackedScene" uid="uid://1mt6xe2hwx07" path="res://scenes/ability_pickup.tscn" id="6_eow3j"]
+[ext_resource type="PackedScene" uid="uid://cdg3j2u5iv462" path="res://scenes/slime_monster.tscn" id="7_eow3j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7jktm"]
 resource_name = "Tile"
@@ -45,9 +46,9 @@ tile_set = SubResource("TileSet_ryrav")
 
 [node name="Box_Test" parent="." instance=ExtResource("5_ryrav")]
 position = Vector2(280, 580)
-hp = null
-break_on_any_hit = null
-can_break = null
 
 [node name="AbilityPickup" parent="." instance=ExtResource("6_eow3j")]
 position = Vector2(828, 338)
+
+[node name="SlimeMonster" parent="." instance=ExtResource("7_eow3j")]
+position = Vector2(674, 572)
