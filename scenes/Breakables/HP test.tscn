@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://blkglrf42ediu"]
+
+[ext_resource type="Script" uid="uid://br5lyc8k86s50" path="res://scenes/Breakables/hp_test.gd" id="1_32lqu"]
+[ext_resource type="Texture2D" uid="uid://ber4hk6ftuboq" path="res://Assets/Sprites/Crate_Large.png" id="2_urbfl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7aw1n"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iiu7q"]
+size = Vector2(40, 40)
+
+[node name="HP test" type="StaticBody2D"]
+script = ExtResource("1_32lqu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.2218952e-06, -1.0523303e-06)
+texture = ExtResource("2_urbfl")
+
+[node name="SolidCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7aw1n")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="HurtboxCollision" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_iiu7q")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

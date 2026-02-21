@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dpfogkt0kxiqp"]
+[gd_scene load_steps=16 format=4 uid="uid://dpfogkt0kxiqp"]
 
 [ext_resource type="PackedScene" uid="uid://c4m7cxe488g23" path="res://scenes/character_body_2d.tscn" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://belx2syb5isqx" path="res://Assets/Sprites/Tiles/Tile 2.png" id="3_7jktm"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://brr3sl572y65" path="res://scenes/Breakables/small_crate.tscn" id="8_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://cjb3e3w7rqwou" path="res://scenes/Breakables/tall_crate.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://ca83hiil54d80" path="res://scenes/Breakables/wide_crate.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://bo52cug8qwama" path="res://scenes/Door.tscn" id="10_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://brgpna1tpr0c4" path="res://scenes/sword_pickup.tscn" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://co7tfytjlt6g" path="res://scenes/Key.tscn" id="11_iotsf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7jktm"]
 resource_name = "Tile"
@@ -47,16 +49,30 @@ tile_map_data = PackedByteArray("AAAWABoAAAAAAAAAAAAXABoAAAAAAAAAAAAYABoAAAAAAAA
 tile_set = SubResource("TileSet_ryrav")
 
 [node name="Large Crate" parent="." instance=ExtResource("7_gee14")]
-position = Vector2(410, 580)
+position = Vector2(391, 580)
 
 [node name="Small Crate" parent="." instance=ExtResource("8_0tnpc")]
-position = Vector2(520, 590)
+position = Vector2(601, 590)
 
 [node name="Tall Crate" parent="." instance=ExtResource("8_gee14")]
-position = Vector2(469, 580)
+position = Vector2(461, 580)
 
 [node name="Wide Crate" parent="." instance=ExtResource("9_0tnpc")]
-position = Vector2(581, 590)
+position = Vector2(531, 590)
 
 [node name="Sword Pickup" parent="." instance=ExtResource("10_vtaks")]
-position = Vector2(874, 332)
+position = Vector2(835, 335)
+
+[node name="KeyPickup" parent="." instance=ExtResource("11_iotsf")]
+position = Vector2(890, 336)
+
+[node name="Door" parent="." instance=ExtResource("10_mfdv2")]
+position = Vector2(780, 380)
+
+[node name="Door2" parent="." instance=ExtResource("10_mfdv2")]
+position = Vector2(950, 340)
+scale = Vector2(0.50113094, 1.0067056)
+
+[node name="Door3" parent="." instance=ExtResource("10_mfdv2")]
+position = Vector2(290, 490.00003)
+scale = Vector2(0.5037211, 1.5027184)
