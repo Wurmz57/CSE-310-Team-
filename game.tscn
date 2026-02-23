@@ -65,10 +65,7 @@ position = Vector2(531, 590)
 position = Vector2(868, 335)
 
 [node name="KeyPickup" parent="." instance=ExtResource("11_iotsf")]
-position = Vector2(314, 440)
-
-[node name="Door" parent="." instance=ExtResource("10_mfdv2")]
-position = Vector2(780, 380)
+position = Vector2(325, 574)
 
 [node name="Door2" parent="." instance=ExtResource("10_mfdv2")]
 position = Vector2(950, 340)
@@ -79,4 +76,4 @@ position = Vector2(290, 490.00003)
 scale = Vector2(0.49859163, 1.4999166)
 
 [node name="sword door" parent="." instance=ExtResource("12_iotsf")]
-position = Vector2(448, 460)
+position = Vector2(780, 380)

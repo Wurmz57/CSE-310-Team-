@@ -23,6 +23,7 @@ PlayerProgress="*res://scripts/PlayerProgress.gd"
 
 player=""
 hitbox=""
+door=""
 
 [input]
 

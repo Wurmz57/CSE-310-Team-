@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdfltgyp5smtm"]
 
-[ext_resource type="Script" uid="uid://bp4a7qx5xf3mb" path="res://scenes/Breakables/key_test.gd" id="1_ctivm"]
+[ext_resource type="Script" uid="uid://bp4a7qx5xf3mb" path="res://scripts/key_test.gd" id="1_ctivm"]
 [ext_resource type="Texture2D" uid="uid://ber4hk6ftuboq" path="res://Assets/Sprites/Crate_Large.png" id="2_jd8ag"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7aw1n"]

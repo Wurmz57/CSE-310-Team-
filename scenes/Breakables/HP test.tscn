@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://blkglrf42ediu"]
 
-[ext_resource type="Script" uid="uid://br5lyc8k86s50" path="res://scenes/Breakables/hp_test.gd" id="1_32lqu"]
+[ext_resource type="Script" uid="uid://br5lyc8k86s50" path="res://scripts/hp_test.gd" id="1_32lqu"]
 [ext_resource type="Texture2D" uid="uid://ber4hk6ftuboq" path="res://Assets/Sprites/Crate_Large.png" id="2_urbfl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7aw1n"]
