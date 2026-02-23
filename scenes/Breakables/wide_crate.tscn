@@ -1,16 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca83hiil54d80"]
+[gd_scene load_steps=6 format=3 uid="uid://ca83hiil54d80"]
 
 [ext_resource type="PackedScene" uid="uid://cqjjwtbvpynvc" path="res://scenes/Breakables/breakable.tscn" id="1_3pq00"]
-[ext_resource type="Texture2D" uid="uid://r5yc3g4s82bx" path="res://Assets/Sprites/Crate_wide.png" id="2_gn17k"]
+[ext_resource type="Texture2D" uid="uid://c0c8nv0jfclsu" path="res://Assets/Sprites/Wide_crate_idle.png" id="2_gn17k"]
+[ext_resource type="Texture2D" uid="uid://bd8vgi53iu0el" path="res://Assets/Sprites/Wide_crate_break.png" id="3_0xu2k"]
+[ext_resource type="Texture2D" uid="uid://drrjxxnbi2ufp" path="res://Assets/Sprites/Wide_crate_broken.png" id="4_lo5ni"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0l7y2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gn17k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0xu2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lo5ni")
+}],
+"loop": false,
+"name": &"break",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_lo5ni")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gn17k")
+}],
+"loop": true,
+"name": &"unbroken",
+"speed": 5.0
+}]
 
 [node name="Wide Crate" instance=ExtResource("1_3pq00")]
 max_hp = 2
 
-[node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_gn17k")
-
-[node name="SolidCollision" parent="." index="1"]
+[node name="SolidCollision" parent="." index="0"]
 scale = Vector2(0.99791926, 0.5045366)
 
 [node name="HurtboxCollision" parent="Hurtbox" index="0"]
 scale = Vector2(1, 0.5026951)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
+position = Vector2(-1.5, -2)
+sprite_frames = SubResource("SpriteFrames_0l7y2")
+animation = &"break"

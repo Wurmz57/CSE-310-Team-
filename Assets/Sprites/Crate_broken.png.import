@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlxrxxhmstbwv"
-path="res://.godot/imported/Crate_small.png-4eb949c19a94a2ffbbd1e08fd9bef1e6.ctex"
+uid="uid://chnjws0b7375d"
+path="res://.godot/imported/Crate_broken.png-80bf79fb42e9ede49c605194e3749484.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Crate_small.png"
-dest_files=["res://.godot/imported/Crate_small.png-4eb949c19a94a2ffbbd1e08fd9bef1e6.ctex"]
+source_file="res://Assets/Sprites/Crate_broken.png"
+dest_files=["res://.godot/imported/Crate_broken.png-80bf79fb42e9ede49c605194e3749484.ctex"]
 
 [params]
 

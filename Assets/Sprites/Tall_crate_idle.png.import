@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ber4hk6ftuboq"
-path="res://.godot/imported/Crate_Large.png-6994e80d79be69445ad61cfcf5b0d35f.ctex"
+uid="uid://c42qjvh4tuwmh"
+path="res://.godot/imported/Tall_crate_idle.png-63af46f09b6651fea6b07b976840aefe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Crate_Large.png"
-dest_files=["res://.godot/imported/Crate_Large.png-6994e80d79be69445ad61cfcf5b0d35f.ctex"]
+source_file="res://Assets/Sprites/Tall_crate_idle.png"
+dest_files=["res://.godot/imported/Tall_crate_idle.png-63af46f09b6651fea6b07b976840aefe.ctex"]
 
 [params]
 
