@@ -23,7 +23,8 @@ const SWORD_ANIMATIONS := {
 @export var speed := 400.0
 @export var jump_force := 500.0
 @export var gravity := 1200.0
-@export var coyote_time = 0
+var coyote_time = 0
+@export var hp = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -109,3 +110,10 @@ func update_animation():
 		sprite.play(anims["walk"])
 	else:
 		sprite.play(anims["idle"]) #Idle animation
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	if body.is_in_group('enemy'):
+		print('You got hit!')
+		hp -= 1
+		if hp <= 0:
+			print('You died!')
