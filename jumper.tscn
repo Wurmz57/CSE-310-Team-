@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://cc3kcny6vuqaw"]
+
+[ext_resource type="Texture2D" uid="uid://he4rew8ula0y" path="res://Assets/Sprites/Enemy_1.png" id="1_jgrh8"]
+[ext_resource type="Script" uid="uid://dbyxueiemts4e" path="res://jumper.gd" id="1_ysxgc"]
+[ext_resource type="PackedScene" uid="uid://ccx1r5arjgirl" path="res://scenes/enemy_hurtbox.tscn" id="3_iw5d4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ysxgc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jgrh8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iw5d4"]
+size = Vector2(27, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ub16k"]
+size = Vector2(27, 27)
+
+[node name="jumper" type="CharacterBody2D"]
+script = ExtResource("1_ysxgc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.4862745, 0.4862745, 1, 1)
+sprite_frames = SubResource("SpriteFrames_ysxgc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 4.5)
+shape = SubResource("RectangleShape2D_iw5d4")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(22, 0)
+
+[node name="EnemyHurtbox" parent="." instance=ExtResource("3_iw5d4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
+position = Vector2(-0.5, 4.5)
+shape = SubResource("RectangleShape2D_ub16k")
+
+[node name="JumpTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]

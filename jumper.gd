@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var direction = 1
-var speed = 80
+var speed = 100
 
 func _ready():
 	$RayCast2D.add_exception(get_parent().get_node('Player'))
@@ -15,3 +15,7 @@ func _process(delta):
 		velocity += get_gravity() * delta
 	velocity.x = speed * direction
 	move_and_slide()
+
+func _on_jump_timer_timeout() -> void:
+	if is_on_floor():
+		velocity.y = -400

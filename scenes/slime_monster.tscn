@@ -44,7 +44,7 @@ position = Vector2(-0.5, 2)
 shape = SubResource("RectangleShape2D_13gqf")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(22, 0)
+target_position = Vector2(26, 0)
 
 [node name="EnemyHurtbox" parent="." instance=ExtResource("3_13gqf")]
 hp = 2

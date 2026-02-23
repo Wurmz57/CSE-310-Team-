@@ -10,7 +10,8 @@ var is_attacking := false
 @export var speed := 400.0
 @export var jump_force := 500.0
 @export var gravity := 1200.0
-@export var coyote_time = 0
+var coyote_time = 0
+@export var hp = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -86,7 +87,9 @@ func update_animation():
 	if not is_on_floor():
 		sprite.play("Sword Jump")
 
-
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group('enemy'):
-		print('you got hit!')
+		print('You got hit!')
+		hp -= 1
+		if hp <= 0:
+			print('You died!')
