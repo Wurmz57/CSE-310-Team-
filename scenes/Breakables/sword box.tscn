@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdfltgyp5smtm"]
+
+[ext_resource type="Script" uid="uid://bp4a7qx5xf3mb" path="res://scenes/Breakables/key_test.gd" id="1_ctivm"]
+[ext_resource type="Texture2D" uid="uid://ber4hk6ftuboq" path="res://Assets/Sprites/Crate_Large.png" id="2_jd8ag"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7aw1n"]
+size = Vector2(40, 40)
+
+[node name="sword door" type="StaticBody2D"]
+script = ExtResource("1_ctivm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.2218952e-06, -1.0523303e-06)
+texture = ExtResource("2_jd8ag")
+
+[node name="SolidCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7aw1n")

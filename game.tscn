@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dpfogkt0kxiqp"]
+[gd_scene load_steps=17 format=4 uid="uid://dpfogkt0kxiqp"]
 
 [ext_resource type="PackedScene" uid="uid://c4m7cxe488g23" path="res://scenes/character_body_2d.tscn" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://belx2syb5isqx" path="res://Assets/Sprites/Tiles/Tile 2.png" id="3_7jktm"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bo52cug8qwama" path="res://scenes/Door.tscn" id="10_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://brgpna1tpr0c4" path="res://scenes/sword_pickup.tscn" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://co7tfytjlt6g" path="res://scenes/Key.tscn" id="11_iotsf"]
+[ext_resource type="PackedScene" uid="uid://cdfltgyp5smtm" path="res://scenes/Breakables/sword box.tscn" id="12_iotsf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7jktm"]
 resource_name = "Tile"
@@ -41,7 +42,7 @@ sources/2 = SubResource("TileSetAtlasSource_j5wjh")
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_e2o6t")]
-position = Vector2(526, 397)
+position = Vector2(528, 407)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 light_mask = 0
@@ -61,10 +62,10 @@ position = Vector2(461, 580)
 position = Vector2(531, 590)
 
 [node name="Sword Pickup" parent="." instance=ExtResource("10_vtaks")]
-position = Vector2(835, 335)
+position = Vector2(868, 335)
 
 [node name="KeyPickup" parent="." instance=ExtResource("11_iotsf")]
-position = Vector2(890, 336)
+position = Vector2(314, 440)
 
 [node name="Door" parent="." instance=ExtResource("10_mfdv2")]
 position = Vector2(780, 380)
@@ -75,4 +76,7 @@ scale = Vector2(0.50113094, 1.0067056)
 
 [node name="Door3" parent="." instance=ExtResource("10_mfdv2")]
 position = Vector2(290, 490.00003)
-scale = Vector2(0.5037211, 1.5027184)
+scale = Vector2(0.49859163, 1.4999166)
+
+[node name="sword door" parent="." instance=ExtResource("12_iotsf")]
+position = Vector2(448, 460)
