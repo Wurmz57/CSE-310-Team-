@@ -24,6 +24,7 @@ PlayerProgress="*res://scripts/PlayerProgress.gd"
 player=""
 hitbox=""
 enemy=""
+door=""
 
 [input]
 

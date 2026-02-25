@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtjb3hku1i3sj"]
+
+[ext_resource type="Script" uid="uid://dbebdjuaacd0r" path="res://scripts/door.gd" id="1_obukq"]
+[ext_resource type="Texture2D" uid="uid://dk4woaj4g3rdw" path="res://Assets/Sprites/Door.png" id="2_ijqsy"]
+[ext_resource type="Texture2D" uid="uid://b0lq3dpxculnq" path="res://Assets/Sprites/Door2.png" id="3_rba8x"]
+[ext_resource type="Texture2D" uid="uid://tnb06hgiavk8" path="res://Assets/Sprites/Door3.png" id="4_0pt7y"]
+[ext_resource type="Texture2D" uid="uid://cpkgsguife0ob" path="res://Assets/Sprites/Door4.png" id="5_onys3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mg2as"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("2_ijqsy")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_rba8x")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_0pt7y")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_onys3")
+}],
+"loop": true,
+"name": &"Idle animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ijqsy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_mg2as"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ebfc"]
+size = Vector2(51.671875, 56)
+
+[node name="Door 2nd section" type="StaticBody2D"]
+script = ExtResource("1_obukq")
+
+[node name="Door animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mg2as")
+animation = &"Idle animation"
+
+[node name="Unlock door" type="Area2D" parent="." groups=["door"]]
+script = SubResource("GDScript_mg2as")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Unlock door"]
+position = Vector2(-9.8359375, 0)
+shape = SubResource("RectangleShape2D_1ebfc")

@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://bo52cug8qwama"]
+
+[ext_resource type="Script" uid="uid://dbebdjuaacd0r" path="res://scripts/door.gd" id="1_eyv6f"]
+[ext_resource type="Texture2D" uid="uid://dk4woaj4g3rdw" path="res://Assets/Sprites/Door.png" id="2_1ebfc"]
+[ext_resource type="Texture2D" uid="uid://b0lq3dpxculnq" path="res://Assets/Sprites/Door2.png" id="3_4k7y2"]
+[ext_resource type="Texture2D" uid="uid://tnb06hgiavk8" path="res://Assets/Sprites/Door3.png" id="4_kdo1k"]
+[ext_resource type="Texture2D" uid="uid://cpkgsguife0ob" path="res://Assets/Sprites/Door4.png" id="5_v12wq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7aw1n"]
+size = Vector2(16, 56)
+
+[sub_resource type="GDScript" id="GDScript_mg2as"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ebfc"]
+size = Vector2(51.671875, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mg2as"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("2_1ebfc")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_4k7y2")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_kdo1k")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_v12wq")
+}],
+"loop": true,
+"name": &"Idle animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1ebfc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Door" type="StaticBody2D"]
+script = ExtResource("1_eyv6f")
+
+[node name="SolidCollision" type="CollisionShape2D" parent="."]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_7aw1n")
+
+[node name="Unlock door" type="Area2D" parent="." groups=["door"]]
+script = SubResource("GDScript_mg2as")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Unlock door"]
+position = Vector2(-9.8359375, 0)
+shape = SubResource("RectangleShape2D_1ebfc")
+
+[node name="BackSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-3, 0)
+texture = ExtResource("2_1ebfc")
+
+[node name="FrontSprite" type="Sprite2D" parent="."]
+visible = false
+z_index = 10
+position = Vector2(3, 0)
+texture = ExtResource("2_1ebfc")
+
+[node name="DoorAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mg2as")
+
+[connection signal="body_entered" from="Unlock door" to="." method="_on_unlock_door_body_entered"]

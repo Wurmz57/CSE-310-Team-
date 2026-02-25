@@ -124,6 +124,8 @@ position_smoothing_speed = 10.0
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Animated Player Sprite" type="AnimatedSprite2D" parent="Visuals"]
+visibility_layer = 4
+z_index = 5
 sprite_frames = SubResource("SpriteFrames_ws0vm")
 animation = &"Swordless"
 offset = Vector2(4, 0)
