@@ -31,3 +31,5 @@ func _on_unlock_door_body_entered(body: Node2D) -> void:
 	if PlayerProgress.has_ability(open_id):
 		solid_collision.set_deferred("disabled", true)
 		sprite_ani.visible = false
+		sprite_back.visible = true
+		sprite_front. visible = true

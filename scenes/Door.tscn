@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bo52cug8qwama"]
+[gd_scene load_steps=11 format=3 uid="uid://bo52cug8qwama"]
 
 [ext_resource type="Script" uid="uid://dbebdjuaacd0r" path="res://scripts/door.gd" id="1_eyv6f"]
 [ext_resource type="Texture2D" uid="uid://dk4woaj4g3rdw" path="res://Assets/Sprites/Door.png" id="2_1ebfc"]
 [ext_resource type="Texture2D" uid="uid://b0lq3dpxculnq" path="res://Assets/Sprites/Door2.png" id="3_4k7y2"]
 [ext_resource type="Texture2D" uid="uid://tnb06hgiavk8" path="res://Assets/Sprites/Door3.png" id="4_kdo1k"]
 [ext_resource type="Texture2D" uid="uid://cpkgsguife0ob" path="res://Assets/Sprites/Door4.png" id="5_v12wq"]
+[ext_resource type="Texture2D" uid="uid://cl61p1v1jtndi" path="res://Assets/Sprites/Key.png" id="6_y7q0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7aw1n"]
 size = Vector2(16, 56)
@@ -68,18 +69,18 @@ script = SubResource("GDScript_mg2as")
 position = Vector2(-9.8359375, 0)
 shape = SubResource("RectangleShape2D_1ebfc")
 
+[node name="DoorAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mg2as")
+
 [node name="BackSprite" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-3, 0)
-texture = ExtResource("2_1ebfc")
+position = Vector2(-7, 0)
+texture = ExtResource("6_y7q0m")
 
 [node name="FrontSprite" type="Sprite2D" parent="."]
 visible = false
 z_index = 10
-position = Vector2(3, 0)
-texture = ExtResource("2_1ebfc")
-
-[node name="DoorAnimation" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_mg2as")
+position = Vector2(8, 0)
+texture = ExtResource("6_y7q0m")
 
 [connection signal="body_entered" from="Unlock door" to="." method="_on_unlock_door_body_entered"]

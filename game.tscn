@@ -132,7 +132,7 @@ position = Vector2(1738, 679)
 position = Vector2(289, 491)
 
 [node name="KeyPickup" parent="." instance=ExtResource("13_7sc4i")]
-position = Vector2(266, 579)
+position = Vector2(157, 489)
 
 [node name="sword door" parent="." instance=ExtResource("14_80cx4")]
 position = Vector2(770, 370)
