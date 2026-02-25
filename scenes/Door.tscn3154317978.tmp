@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://bo52cug8qwama"]
+
+[ext_resource type="Script" uid="uid://dbebdjuaacd0r" path="res://scripts/door.gd" id="1_eyv6f"]
+[ext_resource type="Texture2D" uid="uid://ber4hk6ftuboq" path="res://Assets/Sprites/Crate_Large.png" id="2_r1hak"]
+[ext_resource type="Texture2D" uid="uid://cl61p1v1jtndi" path="res://Assets/Sprites/Key.png" id="3_mg2as"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7aw1n"]
+size = Vector2(40, 40)
+
+[sub_resource type="GDScript" id="GDScript_mg2as"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ebfc"]
+size = Vector2(79, 76)
+
+[node name="Door" type="StaticBody2D"]
+script = ExtResource("1_eyv6f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.2218952e-06, -1.0523303e-06)
+texture = ExtResource("2_r1hak")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-1.1920929e-06, -1.0523303e-06)
+texture = ExtResource("3_mg2as")
+
+[node name="SolidCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7aw1n")
+
+[node name="Unlock door" type="Area2D" parent="." groups=["door"]]
+script = SubResource("GDScript_mg2as")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Unlock door"]
+shape = SubResource("RectangleShape2D_1ebfc")
+
+[connection signal="body_entered" from="Unlock door" to="." method="_on_unlock_door_body_entered"]

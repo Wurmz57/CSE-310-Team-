@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="CSE 310 Video Game"
-run/main_scene="uid://dpfogkt0kxiqp"
+config/name="CSE 310 Video Game Project"
+run/main_scene="uid://cxk2ceigcrt4g"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,8 @@ PlayerProgress="*res://scripts/PlayerProgress.gd"
 
 player=""
 hitbox=""
+enemy=""
+door=""
 
 [input]
 

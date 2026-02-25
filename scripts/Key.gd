@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var sprite = $Sprite2D
-@export var ability_id: StringName = &"sword"
+@export var ability_id: StringName = &"key"
 var collected := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

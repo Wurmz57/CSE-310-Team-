@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjwo28yynmytx"]
+
+[ext_resource type="PackedScene" uid="uid://cqjjwtbvpynvc" path="res://scenes/Breakables/breakable.tscn" id="1_8ktcf"]
+[ext_resource type="Texture2D" uid="uid://d2l4uefrq3rfv" path="res://Assets/Sprites/Large_crate_idle.png" id="2_ab833"]
+[ext_resource type="Texture2D" uid="uid://0l0nug30jeqa" path="res://Assets/Sprites/Large_crate_break.png" id="3_q4ots"]
+[ext_resource type="Texture2D" uid="uid://c55b0mq4mdl4l" path="res://Assets/Sprites/Large_crate_broken.png" id="4_gvllh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lfbh6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ab833")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q4ots")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gvllh")
+}],
+"loop": false,
+"name": &"break",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_gvllh")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ab833")
+}],
+"loop": true,
+"name": &"unbroken",
+"speed": 5.0
+}]
+
+[node name="Large Crate" instance=ExtResource("1_8ktcf")]
+max_hp = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_lfbh6")
+animation = &"unbroken"
+offset = Vector2(-4.5, -2.5)

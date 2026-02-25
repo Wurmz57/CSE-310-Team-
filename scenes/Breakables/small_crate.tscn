@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://brr3sl572y65"]
+
+[ext_resource type="PackedScene" uid="uid://cqjjwtbvpynvc" path="res://scenes/Breakables/breakable.tscn" id="1_7wu7b"]
+[ext_resource type="Texture2D" uid="uid://bu40a2k3qmxsd" path="res://Assets/Sprites/Crate_idle.png" id="2_vmouq"]
+[ext_resource type="Texture2D" uid="uid://bgjynoel2j1vi" path="res://Assets/Sprites/Crate_break.png" id="3_uc6gh"]
+[ext_resource type="Texture2D" uid="uid://chnjws0b7375d" path="res://Assets/Sprites/Crate_broken.png" id="4_nh4mh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h708v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vmouq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uc6gh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nh4mh")
+}],
+"loop": false,
+"name": &"break",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_nh4mh")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vmouq")
+}],
+"loop": true,
+"name": &"unbroken",
+"speed": 5.0
+}]
+
+[node name="Small Crate" instance=ExtResource("1_7wu7b")]
+max_hp = 1
+
+[node name="SolidCollision" parent="." index="0"]
+scale = Vector2(0.49805504, 0.5025902)
+
+[node name="HurtboxCollision" parent="Hurtbox" index="0"]
+scale = Vector2(0.5015397, 0.5027468)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
+position = Vector2(-1, -1)
+sprite_frames = SubResource("SpriteFrames_h708v")
+animation = &"break"

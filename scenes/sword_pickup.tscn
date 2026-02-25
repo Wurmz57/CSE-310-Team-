@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://brgpna1tpr0c4"]
+
+[ext_resource type="PackedScene" uid="uid://1mt6xe2hwx07" path="res://scenes/ability_pickup.tscn" id="1_1jded"]
+
+[node name="Sword Pickup" instance=ExtResource("1_1jded")]
+ability_id = &"sword"

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://grasrqkol1as"]
+
+[ext_resource type="Script" uid="uid://dbebdjuaacd0r" path="res://scripts/door.gd" id="1_jfwtf"]
+[ext_resource type="Texture2D" uid="uid://ber4hk6ftuboq" path="res://Assets/Sprites/Crate_Large.png" id="2_fj3ab"]
+[ext_resource type="Texture2D" uid="uid://c1cus7xtrngcc" path="res://Assets/Sprites/Sword_Extended.png" id="3_05vaa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7aw1n"]
+size = Vector2(40, 40)
+
+[node name="Key_test" type="StaticBody2D"]
+script = ExtResource("1_jfwtf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.2218952e-06, -1.0523303e-06)
+texture = ExtResource("2_fj3ab")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-1.2218952e-06, -1.0523303e-06)
+texture = ExtResource("3_05vaa")
+
+[node name="SolidCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7aw1n")
