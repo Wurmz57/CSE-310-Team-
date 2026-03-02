@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4m7cxe488g23"]
+[gd_scene load_steps=18 format=3 uid="uid://c4m7cxe488g23"]
 
 [ext_resource type="Script" uid="uid://cxyo3fusu2bfe" path="res://scripts/player.gd" id="1_g2brh"]
 [ext_resource type="Texture2D" uid="uid://j6po4sdpso2r" path="res://Assets/Sprites/Player_Swordless.png" id="2_dn4c7"]
 [ext_resource type="Texture2D" uid="uid://boxtxesleg7xw" path="res://Assets/Sprites/Player_Sword_Jab2.png" id="2_ws0vm"]
+[ext_resource type="PackedScene" uid="uid://d8jdkicckrlv" path="res://scenes/dust_particles.tscn" id="2_x5gf8"]
 [ext_resource type="Texture2D" uid="uid://cltc83pr6dnaa" path="res://Assets/Sprites/newPlayer.png" id="3_4vejd"]
 [ext_resource type="Texture2D" uid="uid://cvppnqwfuvv2a" path="res://Assets/Sprites/Player_Sword_Jab1.png" id="3_rhr3r"]
 [ext_resource type="Texture2D" uid="uid://c0cbiunnphmps" path="res://Assets/Sprites/swordJump.png" id="4_cibgq"]
@@ -108,10 +109,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t53lx"]
 size = Vector2(38, 20)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x5gf8"]
+radius = 11.0
+height = 46.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 floor_constant_speed = true
 floor_snap_length = 20.0
 script = ExtResource("1_g2brh")
+dust_particles = ExtResource("2_x5gf8")
 metadata/_edit_group_ = true
 
 [node name="Player Collision" type="CollisionShape2D" parent="."]
@@ -140,4 +146,10 @@ position = Vector2(4, -5)
 shape = SubResource("RectangleShape2D_t53lx")
 disabled = true
 
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CapsuleShape2D_x5gf8")
+
 [connection signal="body_entered" from="Visuals/Sword Collision" to="Visuals/Sword Collision" method="_on_body_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

@@ -2,6 +2,7 @@ extends CharacterBody2D
 signal hit
 var screen_size
 var is_attacking := false
+@export var dust_particles: PackedScene
 
 const SWORDLESS_ANIMATIONS := {
 	"idle": "Swordless",
@@ -37,6 +38,10 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		coyote_time += delta
 	else:
+		if coyote_time > .1:
+			var dust = dust_particles.instantiate()
+			dust.position += Vector2(0, 22)
+			add_child(dust)
 		coyote_time = 0
 
 	var direction := 0.0
@@ -52,10 +57,13 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.y += gravity * delta
 	
-	if Input.is_action_pressed("ui_up") and (is_on_floor() or coyote_time <= .1):
+	if Input.is_action_pressed("ui_up") and (is_on_floor() or coyote_time < .08):
 		velocity.y = -jump_force
-		coyote_time = 1
-		
+		coyote_time = .08
+		var dust = dust_particles.instantiate()
+		dust.position += Vector2(0, 22 - velocity.y * delta)
+		add_child(dust)
+	
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("attack"):
