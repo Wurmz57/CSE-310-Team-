@@ -19,7 +19,6 @@ func _ready():
 	hp = max_hp
 	
 func _break() -> void:
-	print("Break")
 	if broken:
 		return
 	broken = true	

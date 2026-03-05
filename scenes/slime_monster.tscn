@@ -47,7 +47,6 @@ shape = SubResource("RectangleShape2D_13gqf")
 target_position = Vector2(26, 0)
 
 [node name="EnemyHurtbox" parent="." instance=ExtResource("3_13gqf")]
-hp = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
 position = Vector2(-0.5, 2)

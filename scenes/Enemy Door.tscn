@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwvsjl4ilbhf5"]
+
+[ext_resource type="Script" uid="uid://bp4a7qx5xf3mb" path="res://scripts/alt_door_script.gd" id="1_5xtsv"]
+[ext_resource type="Texture2D" uid="uid://clpwlulh1pn8d" path="res://Assets/Sprites/Tiles/Tile 1.png" id="2_415u7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7aw1n"]
+
+[node name="enemy door" type="StaticBody2D"]
+script = ExtResource("1_5xtsv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_415u7")
+
+[node name="SolidCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7aw1n")

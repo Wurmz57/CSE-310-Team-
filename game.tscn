@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://cxk2ceigcrt4g"]
+[gd_scene load_steps=20 format=4 uid="uid://cxk2ceigcrt4g"]
 
 [ext_resource type="PackedScene" uid="uid://c4m7cxe488g23" path="res://scenes/character_body_2d.tscn" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://up71fsgtdphi" path="res://Assets/Sprites/Tiles/Tilesheet.png" id="2_ryrav"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bo52cug8qwama" path="res://scenes/Door.tscn" id="12_215e1"]
 [ext_resource type="PackedScene" uid="uid://co7tfytjlt6g" path="res://scenes/Key.tscn" id="13_7sc4i"]
 [ext_resource type="PackedScene" uid="uid://cdfltgyp5smtm" path="res://scenes/Breakables/sword box.tscn" id="14_80cx4"]
+[ext_resource type="PackedScene" uid="uid://dwvsjl4ilbhf5" path="res://scenes/Enemy Door.tscn" id="15_7sc4i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7jktm"]
 resource_name = "Tile"
@@ -123,25 +124,43 @@ position = Vector2(581, 590)
 position = Vector2(1140, 292)
 
 [node name="SlimeMonster" parent="." instance=ExtResource("10_mfdv2")]
-position = Vector2(1866, 314)
+position = Vector2(1852, 314)
+door_id = &"door"
 
 [node name="jumper" parent="." instance=ExtResource("11_iotsf")]
 position = Vector2(1738, 679)
 
 [node name="Door" parent="." instance=ExtResource("12_215e1")]
-position = Vector2(289, 491)
+position = Vector2(279, 430)
+scale = Vector2(1.0571935, 1.0763737)
 
 [node name="KeyPickup" parent="." instance=ExtResource("13_7sc4i")]
 position = Vector2(157, 489)
 
 [node name="sword door" parent="." instance=ExtResource("14_80cx4")]
 position = Vector2(770, 370)
+ability_id = &"sword"
 
 [node name="sword door2" parent="." instance=ExtResource("14_80cx4")]
 position = Vector2(790, 370)
+ability_id = &"sword"
 
 [node name="sword door3" parent="." instance=ExtResource("14_80cx4")]
 position = Vector2(770, 390)
+ability_id = &"sword"
 
 [node name="sword door4" parent="." instance=ExtResource("14_80cx4")]
 position = Vector2(790, 390)
+ability_id = &"sword"
+
+[node name="enemy door" parent="." instance=ExtResource("15_7sc4i")]
+position = Vector2(1710, 370)
+door_id = &"door"
+
+[node name="enemy door2" parent="." instance=ExtResource("15_7sc4i")]
+position = Vector2(1730, 370)
+door_id = &"door"
+
+[node name="enemy door3" parent="." instance=ExtResource("15_7sc4i")]
+position = Vector2(1750, 370)
+door_id = &"door"

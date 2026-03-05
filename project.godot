@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 PlayerProgress="*res://scripts/PlayerProgress.gd"
+DoorEvents="*res://scripts/DoorEvents.gd"
 
 [global_group]
 
