@@ -12,8 +12,6 @@ var hp: int
 @export var break_animation_name: String = "break"
 @export var idle_name: String = "unbroken"
 @export var broken_name: String = "broken"
-#@export var damage = 1
-		
 
 func _ready():
 	hp = max_hp
