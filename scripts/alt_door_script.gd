@@ -12,7 +12,7 @@ func _ready() -> void:
 	# This line “subscribes” the door to the global event
 	DoorEvents.enemy_defeated.connect(_on_enemy_defeated)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if PlayerProgress.has_ability(ability_id) and ability_id != &"NULL":
 		_open()
 

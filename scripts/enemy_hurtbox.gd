@@ -1,9 +1,8 @@
 extends Area2D
 
 @export var hp = 1
-signal hit
-var hp: int
 @export var max_hp := 1
+signal hit
 
 func _ready() -> void:
 	hp = max_hp
