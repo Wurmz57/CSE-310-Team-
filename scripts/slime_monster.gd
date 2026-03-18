@@ -1,7 +1,10 @@
 extends CharacterBody2D
 
+@export var door_id: StringName = &"NULL"
+#I want to make sure it doesn't fire if there is no need for this behavior	
 var direction = 1
 var speed = 80
+var dead := false
 
 func _ready():
 	$RayCast2D.add_exception(get_parent().get_node('Player'))
@@ -29,3 +32,12 @@ func _on_stun_timer_timeout() -> void:
 		if direction == -1:
 			scale.x *= -1
 		direction = 1
+	move_and_slide()
+
+func die():
+	if dead:
+		return
+	dead = true
+	if door_id != &"NULL":
+		DoorEvents.enemy_defeated.emit(door_id)
+	queue_free()
