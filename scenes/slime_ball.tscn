@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bw1nmlnovr47q"]
+
+[ext_resource type="Script" uid="uid://cjlv40aaam3eo" path="res://slime_ball.gd" id="1_ebxhp"]
+[ext_resource type="Texture2D" uid="uid://bu40a2k3qmxsd" path="res://Assets/Sprites/Crate_idle.png" id="2_q5lse"]
+[ext_resource type="PackedScene" uid="uid://ccx1r5arjgirl" path="res://scenes/enemy_hurtbox.tscn" id="3_q5lse"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_83whq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q5lse")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmsph"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_83whq"]
+radius = 10.049875
+
+[node name="SlimeBall" type="Area2D" groups=["enemy"]]
+script = ExtResource("1_ebxhp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_83whq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tmsph")
+
+[node name="EnemyHurtbox" parent="." instance=ExtResource("3_q5lse")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
+shape = SubResource("CircleShape2D_83whq")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

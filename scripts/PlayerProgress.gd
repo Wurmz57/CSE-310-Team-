@@ -7,5 +7,6 @@ func has_ability(ability_id) -> bool:
 	
 func unlock_ability(ability_id) -> void:
 	if unlocked_abilities.has(ability_id): 
+		print("ability already obtained")
 		return
 	unlocked_abilities.append(ability_id)

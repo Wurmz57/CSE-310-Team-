@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://nu8cgnn5xflg"]
+
+[ext_resource type="Script" uid="uid://b5bheykrnadef" path="res://boss_slime.gd" id="1_r3e0i"]
+[ext_resource type="Texture2D" uid="uid://he4rew8ula0y" path="res://Assets/Sprites/Enemy_1.png" id="2_1vp13"]
+[ext_resource type="PackedScene" uid="uid://bw1nmlnovr47q" path="res://scenes/slime_ball.tscn" id="2_hrocv"]
+[ext_resource type="Texture2D" uid="uid://cav1t4seplwm" path="res://Assets/Sprites/Enemy_Slither1.png" id="3_hrocv"]
+[ext_resource type="Texture2D" uid="uid://b25ffxjb4tjbu" path="res://Assets/Sprites/Enemy_Slither2.png" id="4_dqhhl"]
+[ext_resource type="PackedScene" uid="uid://ccx1r5arjgirl" path="res://scenes/enemy_hurtbox.tscn" id="5_38w3x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_440ty"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1vp13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hrocv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1vp13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dqhhl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6tf8"]
+size = Vector2(54, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_muma4"]
+size = Vector2(54, 54)
+
+[node name="BossSlime" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_r3e0i")
+slime_ball_scene = ExtResource("2_hrocv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_440ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 9)
+shape = SubResource("RectangleShape2D_m6tf8")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(35, 0)
+collision_mask = 5
+
+[node name="EnemyHurtbox" parent="." instance=ExtResource("5_38w3x")]
+hp = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
+position = Vector2(-2, 9)
+shape = SubResource("RectangleShape2D_muma4")
+
+[node name="StunTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="Invulnerability" type="Timer" parent="."]
+wait_time = 0.8
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[connection signal="hit" from="EnemyHurtbox" to="." method="_on_enemy_hurtbox_hit"]
+[connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
+[connection signal="timeout" from="Invulnerability" to="." method="_on_invulnerability_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

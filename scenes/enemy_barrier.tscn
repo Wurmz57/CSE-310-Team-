@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3dum4ql8mboe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwbyo"]
+
+[node name="EnemyBarrier" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 4
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bwbyo")
