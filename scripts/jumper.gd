@@ -19,3 +19,15 @@ func _process(delta):
 func _on_jump_timer_timeout() -> void:
 	if is_on_floor():
 		velocity.y = -400
+
+func _on_enemy_hurtbox_hit() -> void:
+	if get_parent().get_node('Player').position.x > position.x:
+		if direction == 1:
+			scale.x *= -1
+		direction = -1
+	else:
+		if direction == -1:
+			scale.x *= -1
+		direction = 1
+	if is_on_floor():
+		velocity.y = -400

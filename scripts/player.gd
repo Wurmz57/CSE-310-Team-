@@ -4,6 +4,7 @@ var screen_size
 var is_attacking := false
 var is_crouching := false
 var is_sliding := false
+@export var dust_particles: PackedScene
 
 const SWORDLESS_ANIMATIONS := {
 	"idle": "Swordless",
@@ -47,6 +48,10 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		coyote_time += delta
 	else:
+		if coyote_time > .1:
+			var dust = dust_particles.instantiate()
+			dust.position += Vector2(0, 22)
+			add_child(dust)
 		coyote_time = 0
 
 	var direction := 0.0
@@ -65,7 +70,10 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ui_up") and (is_on_floor() or coyote_time <= .1):
 		velocity.y = -jump_force
-		coyote_time = 1
+		coyote_time = .08
+		var dust = dust_particles.instantiate()
+		dust.position += Vector2(0, 22 - velocity.y * delta)
+		add_child(dust)
 	
 #	Crouch check
 	is_crouching = Input.is_action_pressed("crouch") and is_on_floor() and not is_sliding
@@ -80,12 +88,20 @@ func _physics_process(delta: float) -> void:
 		
 		if abs(velocity.x) < 50:
 			is_sliding = false
+
+	if Input.is_action_pressed("ui_up") and (is_on_floor() or coyote_time < .08):
+		velocity.y = -jump_force
+		
 	
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("attack"):
 		attack()
 	
+	if abs(velocity.x) > .1 and is_on_floor():
+		$DustParticles.emitting = true
+	else:
+		$DustParticles.emitting = false
 	update_animation()
 	update_collision()
 
@@ -166,7 +182,16 @@ func update_animation():
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group('enemy'):
-		print('You got hit!')
-		hp -= 1
-		if hp <= 0:
-			print('You died!')
+		take_damage()
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group('enemy'):
+		take_damage()
+
+func take_damage():
+	print('You got hit!')
+	hp -= 1
+	if hp <= 0:
+		print('You died!')
+		position = Vector2(400, 450)
+		hp = 3
