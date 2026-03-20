@@ -3,7 +3,9 @@ extends CharacterBody2D
 var direction = 1
 var speed = 0
 var activated = false
+var dead := false
 @export var slime_ball_scene: PackedScene
+@export var door_id: StringName = &"NULL"
 
 func _ready():
 	$RayCast2D.add_exception(get_parent().get_node('Player'))
@@ -47,3 +49,11 @@ func _on_attack_timer_timeout() -> void:
 	slime_ball.position = position
 	slime_ball.velocity = Vector2(randf_range(-100, 100), -250)
 	get_parent().add_child(slime_ball)
+
+func die():
+	if dead:
+		return
+	dead = true
+	if door_id != &"NULL":
+		DoorEvents.enemy_defeated.emit(door_id)
+	queue_free()
