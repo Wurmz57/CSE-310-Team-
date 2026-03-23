@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://je1vhhfjyqr2"
-path="res://.godot/imported/Tile 3.png-467b78dcb8dc0c71ff4f4e6ab018609a.ctex"
+uid="uid://dfbuqc38exlqs"
+path="res://.godot/imported/Player_Swordmore.png-c77712bd062443965f8eac04a2696e2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Tiles/Tile 3.png"
-dest_files=["res://.godot/imported/Tile 3.png-467b78dcb8dc0c71ff4f4e6ab018609a.ctex"]
+source_file="res://Assets/Sprites/Player_Swordmore.png"
+dest_files=["res://.godot/imported/Player_Swordmore.png-c77712bd062443965f8eac04a2696e2c.ctex"]
 
 [params]
 

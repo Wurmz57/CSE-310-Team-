@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://belx2syb5isqx"
-path="res://.godot/imported/Tile 2.png-8914c477469ceb2a6d4fce67dc9b9d7d.ctex"
+uid="uid://cbbqvn8m2sxjw"
+path="res://.godot/imported/Player_Swordmo-OHFETCH.png-a476f80438d40a7d97ce2ae245a4440f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Tiles/Tile 2.png"
-dest_files=["res://.godot/imported/Tile 2.png-8914c477469ceb2a6d4fce67dc9b9d7d.ctex"]
+source_file="res://Assets/Sprites/Player_Swordmo-OHFETCH.png"
+dest_files=["res://.godot/imported/Player_Swordmo-OHFETCH.png-a476f80438d40a7d97ce2ae245a4440f.ctex"]
 
 [params]
 
