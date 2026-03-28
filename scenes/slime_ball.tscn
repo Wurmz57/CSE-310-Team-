@@ -30,6 +30,7 @@ sprite_frames = SubResource("SpriteFrames_83whq")
 shape = SubResource("CircleShape2D_tmsph")
 
 [node name="EnemyHurtbox" parent="." instance=ExtResource("3_q5lse")]
+max_hp = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
 shape = SubResource("CircleShape2D_83whq")

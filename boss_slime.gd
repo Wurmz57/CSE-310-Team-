@@ -3,14 +3,17 @@ extends CharacterBody2D
 var direction = 1
 var speed = 0
 var activated = false
+var attacks = 10
+var player
 @export var slime_ball_scene: PackedScene
 
 func _ready():
 	$RayCast2D.add_exception(get_parent().get_node('Player'))
 	$AnimatedSprite2D.play('default')
+	player = get_parent().get_node('Player')
 
 func _process(delta):
-	if position.distance_squared_to(get_parent().get_node('Player').position) <= 100000 and not activated:
+	if position.distance_squared_to(player.position) <= 100000 and not activated:
 		speed = 60
 		$AttackTimer.start()
 		activated = true
@@ -45,5 +48,18 @@ func _on_invulnerability_timeout() -> void:
 func _on_attack_timer_timeout() -> void:
 	var slime_ball = slime_ball_scene.instantiate()
 	slime_ball.position = position
-	slime_ball.velocity = Vector2(randf_range(-100, 100), -250)
+	slime_ball.velocity = Vector2(0, randf_range(-100, -400)).rotated(randf_range(-PI/3, PI/3))
 	get_parent().add_child(slime_ball)
+	attacks -= 1
+	if attacks <= 0:
+		$AttackTimer.stop()
+		$AttackTimer2.start()
+
+func _on_attack_timer_2_timeout() -> void:
+	$AttackTimer.start()
+	attacks = 40 - $EnemyHurtbox.hp * 3
+
+func die():
+	print("boss defeated")
+	DoorEvents.enemy_defeated.emit("bossDoor")
+	queue_free()

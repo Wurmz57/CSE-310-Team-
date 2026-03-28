@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4m7cxe488g23"]
+[gd_scene load_steps=19 format=3 uid="uid://c4m7cxe488g23"]
 
 [ext_resource type="Script" uid="uid://cxyo3fusu2bfe" path="res://scripts/player.gd" id="1_g2brh"]
 [ext_resource type="Texture2D" uid="uid://j6po4sdpso2r" path="res://Assets/Sprites/Player_Swordless.png" id="2_dn4c7"]
@@ -153,7 +153,7 @@ disabled = true
 debug_color = Color(0.24705882, 0.6509804, 0.23529412, 0.5137255)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 position_smoothing_speed = 10.0
 
 [node name="Visuals" type="Node2D" parent="."]
@@ -188,6 +188,11 @@ amount = 4
 one_shot = false
 explosiveness = 0.0
 
+[node name="Invulnerability" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
 [connection signal="body_entered" from="Visuals/Sword Collision" to="Visuals/Sword Collision" method="_on_body_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="timeout" from="Invulnerability" to="." method="_on_invulnerability_timeout"]

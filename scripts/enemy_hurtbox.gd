@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var hp = 1
+var hp = 1
 @export var max_hp := 1
 signal hit
 
@@ -14,4 +14,7 @@ func _on_area_entered(area: Area2D) -> void:
 	hit.emit()
 	if hp <= 0:
 		var enemy = get_parent()
-		enemy.die()
+		if enemy.has_method('die'):
+			enemy.die()
+		else:
+			enemy.queue_free()
