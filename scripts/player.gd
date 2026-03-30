@@ -35,10 +35,13 @@ const SWORD_ANIMATIONS := {
 @export var slide_speed := 800.0
 @export var slide_friction := 2000.0
 var coyote_time = 0
-@export var hp = 3
+@export var max_hp = 3
+var hp = 0
+var spawn_location = Vector2(400, 450)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	hp = max_hp
 	screen_size = get_viewport_rect().size
 	sprite.play(SWORDLESS_ANIMATIONS["idle"])
 	
@@ -62,9 +65,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("ui_left"):
 		direction -= 1.0
 		visuals.scale.x = -1
-		
-	if not is_crouching and not is_sliding:
-		velocity.x = direction * speed
 
 	velocity.y += gravity * delta
 	
@@ -77,21 +77,25 @@ func _physics_process(delta: float) -> void:
 	
 #	Crouch check
 	is_crouching = Input.is_action_pressed("crouch") and is_on_floor() and not is_sliding
+#	Terminate movement when  crouching
+	if is_sliding:
+		pass
+	elif is_crouching:
+		velocity.x = 0
+	else:
+		velocity.x = direction * speed
 #	Sliding check
 	if Input.is_action_just_pressed("slide") \
 	and is_crouching \
-	and not is_sliding:
+	and not is_sliding \
+	and has_slide():
 		start_slide()
 	
 	if is_sliding:
 		velocity.x = move_toward(velocity.x, 0, slide_friction * delta)
 		
 		if abs(velocity.x) < 50:
-			is_sliding = false
-
-	if Input.is_action_pressed("ui_up") and (is_on_floor() or coyote_time < .08):
-		velocity.y = -jump_force
-		
+			is_sliding = false		
 	
 	move_and_slide()
 	
@@ -107,6 +111,9 @@ func _physics_process(delta: float) -> void:
 
 func has_sword() -> bool:
 	return PlayerProgress.has_ability(&"sword")
+
+func has_slide() -> bool:
+	return PlayerProgress.has_ability(&"slide")
 
 func update_collision():
 	if is_sliding or is_crouching:
@@ -187,11 +194,13 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group('enemy'):
 		take_damage()
+	elif area.is_in_group('checkpoint'):
+		spawn_location = position
 
 func take_damage():
 	print('You got hit!')
 	hp -= 1
 	if hp <= 0:
 		print('You died!')
-		position = Vector2(400, 450)
-		hp = 3
+		position = spawn_location
+		hp = max_hp

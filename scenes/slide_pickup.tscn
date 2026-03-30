@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://by7w7dc0rlpga"]
+
+[ext_resource type="Script" uid="uid://ddtycemrdb13l" path="res://scripts/slide_pickup.gd" id="1_kyb0r"]
+[ext_resource type="Texture2D" uid="uid://bbisl3hkonwsn" path="res://Assets/Sprites/Boots.png" id="2_kyb0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6ssk"]
+size = Vector2(13, 11)
+
+[node name="Slide Pickup" type="Area2D"]
+script = ExtResource("1_kyb0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_p6ssk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kyb0r")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
