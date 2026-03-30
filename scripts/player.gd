@@ -35,10 +35,13 @@ const SWORD_ANIMATIONS := {
 @export var slide_speed := 800.0
 @export var slide_friction := 2000.0
 var coyote_time = 0
-@export var hp = 3
+@export var max_hp = 3
+var hp = 0
+var spawn_location = Vector2(400, 450)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	hp = max_hp
 	screen_size = get_viewport_rect().size
 	sprite.play(SWORDLESS_ANIMATIONS["idle"])
 	
@@ -191,11 +194,13 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group('enemy'):
 		take_damage()
+	elif area.is_in_group('checkpoint'):
+		spawn_location = position
 
 func take_damage():
 	print('You got hit!')
 	hp -= 1
 	if hp <= 0:
 		print('You died!')
-		position = Vector2(400, 450)
-		hp = 3
+		position = spawn_location
+		hp = max_hp
