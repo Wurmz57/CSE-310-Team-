@@ -96,7 +96,7 @@ sources/2 = SubResource("TileSetAtlasSource_j5wjh")
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_e2o6t")]
-position = Vector2(3055, 1684)
+position = Vector2(464, 432)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 light_mask = 0
@@ -155,15 +155,19 @@ position = Vector2(157, 489)
 
 [node name="sword door" parent="." instance=ExtResource("14_80cx4")]
 position = Vector2(771, 370)
+ability_id = &"sword"
 
 [node name="sword door2" parent="." instance=ExtResource("14_80cx4")]
 position = Vector2(791, 370)
+ability_id = &"sword"
 
 [node name="sword door3" parent="." instance=ExtResource("14_80cx4")]
 position = Vector2(771, 390)
+ability_id = &"sword"
 
 [node name="sword door4" parent="." instance=ExtResource("14_80cx4")]
 position = Vector2(791, 390)
+ability_id = &"sword"
 
 [node name="enemy door" parent="." instance=ExtResource("17_rvswv")]
 position = Vector2(1731, 390)
