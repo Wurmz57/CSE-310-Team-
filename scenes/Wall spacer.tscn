@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://lmkvavkv6hvi"]
+
+[ext_resource type="Texture2D" uid="uid://clpwlulh1pn8d" path="res://Assets/Sprites/Tiles/Tile 1.png" id="1_bc55f"]
+
+[node name="WallSpacer" type="Node2D"]
+z_index = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bc55f")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(0, 20)
+texture = ExtResource("1_bc55f")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(0, -20)
+texture = ExtResource("1_bc55f")
