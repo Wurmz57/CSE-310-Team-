@@ -26,6 +26,7 @@ player=""
 hitbox=""
 enemy=""
 door=""
+checkpoint=""
 
 [input]
 

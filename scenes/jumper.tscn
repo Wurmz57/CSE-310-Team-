@@ -39,7 +39,7 @@ target_position = Vector2(22, 0)
 collision_mask = 5
 
 [node name="EnemyHurtbox" parent="." instance=ExtResource("3_iw5d4")]
-hp = 2
+max_hp = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
 position = Vector2(-0.5, 4.5)
