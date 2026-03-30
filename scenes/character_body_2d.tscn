@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4m7cxe488g23"]
+[gd_scene load_steps=23 format=3 uid="uid://c4m7cxe488g23"]
 
 [ext_resource type="Script" uid="uid://cxyo3fusu2bfe" path="res://scripts/player.gd" id="1_g2brh"]
 [ext_resource type="Texture2D" uid="uid://j6po4sdpso2r" path="res://Assets/Sprites/Player_Swordless.png" id="2_dn4c7"]
@@ -6,13 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://d8jdkicckrlv" path="res://scenes/dust_particles.tscn" id="2_x5gf8"]
 [ext_resource type="Texture2D" uid="uid://cltc83pr6dnaa" path="res://Assets/Sprites/newPlayer.png" id="3_4vejd"]
 [ext_resource type="Texture2D" uid="uid://cvppnqwfuvv2a" path="res://Assets/Sprites/Player_Sword_Jab1.png" id="3_rhr3r"]
+[ext_resource type="Texture2D" uid="uid://c3tbi0ceodi7j" path="res://Assets/Sprites/Sword_Crouch.png" id="3_wqsd8"]
 [ext_resource type="Texture2D" uid="uid://c0cbiunnphmps" path="res://Assets/Sprites/swordJump.png" id="4_cibgq"]
 [ext_resource type="Script" uid="uid://uyvdpjncrrvk" path="res://scripts/sword_collision.gd" id="6_rhr3r"]
 [ext_resource type="Texture2D" uid="uid://ctt11t35kfe5n" path="res://Assets/Sprites/newPlayerLeft.png" id="6_yi2kj"]
 [ext_resource type="Texture2D" uid="uid://cvx24tm3uvuiy" path="res://Assets/Sprites/newPlayerRight.png" id="7_cibgq"]
+[ext_resource type="Texture2D" uid="uid://hqhfgyig8ao8" path="res://Assets/Sprites/Sword_Slide.png" id="7_ugk0l"]
 [ext_resource type="Texture2D" uid="uid://d2t08dp51e0dd" path="res://Assets/Sprites/swordlessJump.png" id="9_mfdas"]
 [ext_resource type="Texture2D" uid="uid://ils86fqw2wvp" path="res://Assets/Sprites/Player_Swordless_Left.png" id="10_7pl6r"]
 [ext_resource type="Texture2D" uid="uid://bvrnd3rl62jvr" path="res://Assets/Sprites/Player_Swordless_Right.png" id="11_x5gf8"]
+[ext_resource type="Texture2D" uid="uid://cammyb6fsdg8i" path="res://Assets/Sprites/Swordless_Crouch.png" id="12_eewtm"]
+[ext_resource type="Texture2D" uid="uid://djtk3tixop1pc" path="res://Assets/Sprites/Swordless_Slide.png" id="14_o6j3l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mfdas"]
 height = 44.0
@@ -22,7 +26,10 @@ height = 28.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ws0vm"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wqsd8")
+}],
 "loop": true,
 "name": &"Sword Crouch",
 "speed": 5.0
@@ -55,7 +62,10 @@ animations = [{
 "name": &"Sword Jump",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ugk0l")
+}],
 "loop": false,
 "name": &"Sword Slide",
 "speed": 5.0
@@ -85,7 +95,10 @@ animations = [{
 "name": &"Swordless",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_eewtm")
+}],
 "loop": true,
 "name": &"Swordless Crouch",
 "speed": 5.0
@@ -98,7 +111,10 @@ animations = [{
 "name": &"Swordless Jump",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_o6j3l")
+}],
 "loop": false,
 "name": &"Swordless Slide",
 "speed": 5.0
@@ -162,9 +178,7 @@ position_smoothing_speed = 10.0
 visibility_layer = 4
 z_index = 5
 sprite_frames = SubResource("SpriteFrames_ws0vm")
-animation = &"Sword Jab"
-frame = 4
-frame_progress = 1.0
+animation = &"Sword Crouch"
 offset = Vector2(4, 0)
 
 [node name="Sword Collision" type="Area2D" parent="Visuals" groups=["hitbox"]]
